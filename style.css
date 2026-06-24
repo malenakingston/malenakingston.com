@@ -1,44 +1,29 @@
 /* =========================================================
-   malena kingston — shared styles
-   whimsical / moons + stars + unicorns
+   malena kingston — whimsical / moons + stars + magic
    ========================================================= */
 
-/* ---- fonts ----
-   Using free Google Fonts. The actual <link> is in each HTML file's <head>.
-   Display: "Gloria Hallelujah" (handwritten, cute)
-   Accent:  "Pacifico" (loopy, for the logo/name)
-   Body:    "Quicksand" (soft rounded, very readable)
-*/
-
 :root {
-  /* ---- palette (change these hex codes to recolor the whole site) ----
-     LIGHT INDIGO theme: soft lavender-indigo background, dark ink text. */
-  --night:    #cdd4f5;   /* light periwinkle-blue (main background) */
-  --night-2:  #ffffff;   /* white cards/panels for gentle contrast */
-  --lilac:    #6a5db0;   /* muted indigo-violet (secondary text) */
-  --pink:     #e85ba8;   /* deeper candy pink (readable on light) */
-  --gold:     #c79200;   /* warm amber (readable on light) */
-  --mint:     #1f9d7a;   /* deeper mint-teal (readable links) */
-  --cream:    #2e2756;   /* deep indigo — main TEXT color now */
-  --shadow:   rgba(90, 78, 160, 0.28);
-
+  /* more saturated yet muted periwinkle */
+  --night:    #b9c0ee;   /* main background (saturated + muted) */
+  --night-2:  #ffffff;   /* white cards */
+  --lilac:    #5a4fa0;   /* deeper violet (secondary text) */
+  --pink:     #e23d97;   /* vivid candy pink */
+  --gold:     #c79200;   /* warm amber */
+  --mint:     #1f9d7a;   /* mint-teal links */
+  --cream:    #2a2350;   /* deep indigo — main TEXT color */
+  --shadow:   rgba(70, 60, 140, 0.30);
   --radius: 22px;
 }
 
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: "Quicksand", system-ui, sans-serif;
+  font-family: "Cormorant", Georgia, serif;
+  font-size: 1.18rem;            /* bigger, readable body text */
   color: var(--cream);
   background-color: var(--night);
-  /* twinkly star field made of pure CSS — no images needed.
-     If you'd rather use your own drawn starry background,
-     replace the line below with:
-     background-image: url("images/starry-bg.png");
-     background-size: cover; background-attachment: fixed;       */
   background-image:
     radial-gradient(1.5px 1.5px at 20% 30%, var(--lilac) 50%, transparent 51%),
     radial-gradient(1.5px 1.5px at 70% 20%, var(--gold) 50%, transparent 51%),
@@ -53,45 +38,28 @@ body {
   line-height: 1.6;
 }
 
-/* gentle twinkle animation on the whole star layer */
-@keyframes twinkle {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0.55; }
-}
-body { animation: twinkle 6s ease-in-out infinite; }
+/* NOTE: fade-in/out twinkle animation removed per request */
 
 @media (prefers-reduced-motion: reduce) {
-  body, .float, .spin-slow { animation: none !important; }
   html { scroll-behavior: auto; }
+  .doodle { animation: none !important; }
 }
 
-/* ---- layout wrapper ---- */
-.wrap {
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 28px 20px 80px;
+/* ---- wand cursor (bigger, hotspot near star center) ---- */
+html, body, a, button, .doodle, .mascot {
+  cursor: url("images/wand.png") 60 40, auto;
+}
+html:active, body:active, a:active, .doodle:active {
+  cursor: url("images/wand-click.png") 60 40, auto;
 }
 
-/* ---- site name / logo ---- */
-.site-name {
-  font-family: "Pacifico", cursive;
-  font-size: clamp(2.4rem, 7vw, 4rem);
-  text-align: center;
-  margin: 10px 0 4px;
-  color: var(--pink);
-  text-shadow: 0 0 18px rgba(255, 194, 233, 0.5);
-}
+.wrap { max-width: 920px; margin: 0 auto; padding: 28px 20px 80px; }
 
-/* handwritten signature image used as the site name */
-.site-name-img {
-  text-align: center;
-  margin: 18px 0 6px;
-}
+/* ---- handwritten signature heading ---- */
+.site-name-img { text-align: center; margin: 18px 0 6px; }
 .site-name-img img {
-  width: min(560px, 88%);
-  height: auto;
-  /* very soft lilac halo behind the black ink */
-  filter: drop-shadow(0 2px 10px rgba(106, 93, 176, 0.35));
+  width: min(580px, 90%); height: auto;
+  filter: drop-shadow(0 2px 10px rgba(90, 78, 160, 0.30));
 }
 .tagline {
   text-align: center;
@@ -102,233 +70,14 @@ body { animation: twinkle 6s ease-in-out infinite; }
 }
 
 /* =========================================================
-   NAVIGATION — a row of clickable drawings (like Mila Bea's birds)
-   Each <a> holds one of your drawings. Until you add art,
-   a labeled placeholder shows so you can see the layout.
-   ========================================================= */
-.nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 18px;
-  margin-bottom: 40px;
-}
-.nav a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: var(--cream);
-  font-family: "Gloria Hallelujah", cursive;
-  font-size: 0.85rem;
-  transition: transform 0.18s ease;
-}
-.nav a:hover, .nav a:focus-visible { transform: translateY(-6px) rotate(-3deg); }
-.nav a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; border-radius: 12px; }
-.nav img { width: 84px; height: 84px; object-fit: contain; }
-
-/* placeholder shown when an image is missing or not added yet */
-.ph {
-  width: 84px; height: 84px;
-  border: 2px dashed var(--lilac);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  text-align: center;
-  font-size: 0.62rem;
-  color: var(--lilac);
-  padding: 6px;
-  background: rgba(201,182,255,0.08);
-}
-
-/* ---- floating decoration helper (moons, stars you place anywhere) ---- */
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50%     { transform: translateY(-12px); }
-}
-.float { animation: float 5s ease-in-out infinite; }
-.spin-slow { animation: float 9s ease-in-out infinite; }
-
-/* =========================================================
-   CARDS / PANELS (used on every page)
-   ========================================================= */
-.card {
-  background: var(--night-2);
-  border: 2px solid rgba(201,182,255,0.35);
-  border-radius: var(--radius);
-  padding: 26px 28px;
-  margin: 0 0 22px;
-  box-shadow: 0 10px 30px var(--shadow);
-}
-.card h2 {
-  font-family: "Gloria Hallelujah", cursive;
-  color: var(--gold);
-  margin: 0 0 14px;
-  font-size: 1.5rem;
-}
-.card h3 {
-  font-family: "Quicksand", sans-serif;
-  font-weight: 700;
-  color: var(--pink);
-  margin: 0 0 4px;
-}
-.card a { color: var(--mint); }
-
-/* ---- page title (inner pages) ---- */
-.page-title {
-  font-family: "Pacifico", cursive;
-  font-size: clamp(2rem, 6vw, 3rem);
-  text-align: center;
-  color: var(--lilac);
-  margin: 6px 0 26px;
-}
-
-/* ---- back-home little link ---- */
-.home-link {
-  display: inline-block;
-  font-family: "Gloria Hallelujah", cursive;
-  color: var(--pink);
-  text-decoration: none;
-  margin-bottom: 20px;
-}
-.home-link:hover { color: var(--gold); }
-
-/* =========================================================
-   SHOWS list
-   ========================================================= */
-.show {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 8px 16px;
-  padding: 14px 0;
-  border-bottom: 1px dashed rgba(201,182,255,0.3);
-}
-.show:last-child { border-bottom: none; }
-.show .date {
-  font-family: "Gloria Hallelujah", cursive;
-  color: var(--gold);
-  min-width: 90px;
-}
-.show .venue { font-weight: 700; }
-.show .city { color: var(--lilac); }
-.show .ticket {
-  margin-left: auto;
-  background: var(--pink);
-  color: var(--night);
-  text-decoration: none;
-  font-weight: 700;
-  padding: 5px 14px;
-  border-radius: 999px;
-  font-size: 0.85rem;
-}
-.show .ticket:hover { background: var(--gold); }
-
-/* =========================================================
-   MUSIC embeds
-   ========================================================= */
-.embed { margin: 0 0 18px; }
-.embed iframe { width: 100%; border: none; border-radius: 14px; }
-
-/* =========================================================
-   BLOG entries
-   ========================================================= */
-.post { margin-bottom: 30px; }
-.post .meta {
-  font-family: "Gloria Hallelujah", cursive;
-  color: var(--mint);
-  font-size: 0.8rem;
-  margin-bottom: 6px;
-}
-.post h3 { font-size: 1.25rem; }
-.tag {
-  display: inline-block;
-  background: rgba(201,182,255,0.18);
-  color: var(--lilac);
-  border-radius: 999px;
-  padding: 2px 10px;
-  font-size: 0.72rem;
-  margin-right: 6px;
-}
-
-/* =========================================================
-   CONTACT
-   ========================================================= */
-.socials {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  justify-content: center;
-  margin-top: 10px;
-}
-.socials a {
-  font-family: "Gloria Hallelujah", cursive;
-  color: var(--night);
-  background: var(--lilac);
-  padding: 8px 18px;
-  border-radius: 999px;
-  text-decoration: none;
-}
-.socials a:hover { background: var(--pink); }
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-.footer {
-  text-align: center;
-  color: var(--lilac);
-  font-size: 0.8rem;
-  margin-top: 40px;
-  font-family: "Gloria Hallelujah", cursive;
-}
-
-/* =========================================================
-   MUSIC TOGGLE BUTTON (background song, like Mila Bea)
-   ========================================================= */
-#music-toggle {
-  position: fixed;
-  bottom: 18px; right: 18px;
-  z-index: 50;
-  background: var(--night-2);
-  border: 2px solid var(--lilac);
-  color: var(--cream);
-  font-family: "Gloria Hallelujah", cursive;
-  font-size: 0.8rem;
-  padding: 10px 14px;
-  border-radius: 999px;
-  cursor: pointer;
-  box-shadow: 0 6px 18px var(--shadow);
-}
-#music-toggle:hover { border-color: var(--gold); }
-
-/* =========================================================
-   WAND CURSOR (added in scattered-layout rebuild)
-   hotspot ~ center of the star burst (46 30)
-   ========================================================= */
-html, body, a, button, .doodle, .mascot {
-  cursor: url("images/wand.png") 46 30, auto;
-}
-/* sparkle wand on click/press */
-html:active, body:active, a:active, .doodle:active {
-  cursor: url("images/wand-click.png") 46 30, auto;
-}
-
-/* =========================================================
    SCATTERED PLAYGROUND
    ========================================================= */
-.playground {
-  position: relative;
-  min-height: 560px;
-  margin: 10px 0 30px;
-}
+.playground { position: relative; min-height: 640px; margin: 10px 0 30px; }
 
-/* center mascot (you) */
 .mascot {
-  position: absolute;
-  left: 50%; top: 48%;
+  position: absolute; left: 50%; top: 44%;
   transform: translate(-50%, -50%);
-  width: 270px; max-width: 60%;
-  z-index: 2;
-  text-align: center;
+  width: 270px; max-width: 60%; z-index: 2; text-align: center;
 }
 .mascot img { width: 100%; height: auto;
   filter: drop-shadow(0 6px 14px rgba(90,78,160,0.3)); }
@@ -340,109 +89,141 @@ html:active, body:active, a:active, .doodle:active {
   font-family: "Gloria Hallelujah", cursive; padding: 20px;
 }
 
-/* each scattered clickable doodle */
+/* each clickable doodle */
 .doodle {
-  position: absolute;
-  width: 150px;
-  text-decoration: none;
-  text-align: center;
+  position: absolute; width: 150px;
+  text-decoration: none; text-align: center;
   transform: rotate(var(--rot));
   transition: transform 0.2s ease, filter 0.2s ease;
   z-index: 3;
 }
-.doodle img {
-  width: 100%; height: auto;
-  filter: drop-shadow(0 4px 8px rgba(90,78,160,0.28));
-}
+.doodle.big { width: 210px; }     /* bigger bird / envelope / star */
+
+.doodle img { width: 100%; height: auto;
+  filter: drop-shadow(0 4px 8px rgba(90,78,160,0.28)); }
+
 .doodle .label {
-  display: block;
-  margin-top: 4px;
-  font-family: "Cinzel Decorative", serif;
-  font-weight: 700;
+  display: block; margin-top: 6px;
+  font-family: "Quintessential", "Cormorant", serif;
+  font-weight: 400;
   color: var(--cream);
-  font-size: 0.95rem;
-  letter-spacing: 0.5px;
+  font-size: 1.45rem;             /* bigger, readable labels */
+  letter-spacing: 0.3px;
+  text-transform: lowercase;      /* keep it all lowercase */
 }
+
+/* brighter pink glow on hover/click */
 .doodle:hover, .doodle:focus-visible {
   transform: rotate(0deg) scale(1.1);
-  filter: drop-shadow(0 0 10px rgba(232,91,168,0.5));
-  outline: none;
-  z-index: 5;
+  filter: drop-shadow(0 0 16px rgba(255, 64, 180, 0.95))
+          drop-shadow(0 0 28px rgba(255, 105, 200, 0.7));
+  outline: none; z-index: 5;
+}
+.doodle:active {
+  filter: drop-shadow(0 0 22px rgba(255, 40, 170, 1))
+          drop-shadow(0 0 40px rgba(255, 90, 200, 0.85));
 }
 
-/* placement of the five doodles around the mascot */
-.d-music   { left: 2%;   top: 4%;  }
-.d-shows   { right: 3%;  top: 0%;   left: auto; }
-.d-blog    { left: 6%;   bottom: 6%; top: auto; }
-.d-contact { right: 4%;  bottom: 2%; top: auto; left: auto; }
-.d-archive { left: 50%;  top: -6%;  transform: translateX(-50%) rotate(var(--rot)); }
+/* placement around the mascot */
+.d-music   { left: 0%;   top: 6%;  }
+.d-shows   { right: 3%;  top: 2%;  left: auto; }
+.d-blog    { left: 4%;   bottom: 16%; top: auto; }
+.d-contact { right: 1%;  bottom: 12%; top: auto; left: auto; }
+
+/* ARCHIVE now centered, at the BOTTOM under the portrait */
+.d-archive {
+  left: 50%; bottom: -2%; top: auto;
+  transform: translateX(-50%) rotate(var(--rot));
+}
 .d-archive:hover { transform: translateX(-50%) rotate(0) scale(1.1); }
 
-/* gentle bobbing so the scene feels alive */
+/* gentle bob (position only — no opacity fade) */
 @keyframes bob { 0%,100%{ margin-top:0 } 50%{ margin-top:-10px } }
 .d-music{ animation: bob 5s ease-in-out infinite; }
 .d-shows{ animation: bob 6s ease-in-out infinite; }
 .d-blog{ animation: bob 5.5s ease-in-out infinite; }
 .d-contact{ animation: bob 6.5s ease-in-out infinite; }
-.d-archive{ animation: bob 7s ease-in-out infinite; }
 
-.note { max-width: 620px; margin-left: auto; margin-right: auto; text-align: center; }
-
-/* magical font for page titles too */
-.page-title { font-family: "Cinzel Decorative", serif; }
-
-/* ---- mobile: stack the scattered doodles into a neat wrap ---- */
-@media (max-width: 640px) {
-  .playground { min-height: 0; display: flex; flex-wrap: wrap;
-    justify-content: center; gap: 18px; }
-  .mascot { position: static; transform: none; width: 200px;
-    order: -1; flex-basis: 100%; }
-  .doodle, .d-music, .d-shows, .d-blog, .d-contact, .d-archive {
-    position: static; transform: rotate(var(--rot)); width: 120px;
-    left: auto; right: auto; top: auto; bottom: auto; animation: none; }
-  .d-archive { transform: rotate(var(--rot)); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .doodle { animation: none !important; }
-}
+.note { max-width: 620px; margin: 0 auto; text-align: center; }
 
 /* =========================================================
-   ARCHIVE / VAULT sub-collection grid
+   CARDS / inner pages
    ========================================================= */
-.vault-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-  margin: 26px 0;
-}
-.vault-card {
+.card {
   background: var(--night-2);
-  border: 2px solid rgba(106,93,176,0.25);
+  border: 2px solid rgba(90,78,160,0.20);
   border-radius: var(--radius);
-  padding: 22px 16px;
-  text-align: center;
-  text-decoration: none;
-  display: flex; flex-direction: column; align-items: center;
-  box-shadow: 0 8px 22px var(--shadow);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  padding: 26px 28px; margin: 0 0 22px;
+  box-shadow: 0 10px 30px var(--shadow);
 }
-.vault-card:hover {
-  transform: translateY(-6px) rotate(-1.5deg);
-  box-shadow: 0 14px 28px var(--shadow);
-}
-.vault-card img { width: 110px; height: 110px; object-fit: contain; margin-bottom: 10px; }
-.vault-name {
-  font-family: "Cinzel Decorative", serif;
-  color: var(--pink); font-size: 1.05rem;
-}
-.vault-sub {
-  font-family: "Gloria Hallelujah", cursive;
-  color: var(--lilac); font-size: 0.78rem; margin-top: 2px;
-}
+.card h2 { font-family: "Cinzel Decorative", serif; color: var(--gold);
+  margin: 0 0 14px; font-size: 1.5rem; }
+.card h3 { font-weight: 600; color: var(--pink); margin: 0 0 4px; }
+.card a { color: var(--mint); }
 
-/* simple photo grid for the single-page vault */
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 10px;
+.page-title {
+  font-family: "Cinzel Decorative", serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  text-align: center; color: var(--lilac); margin: 6px 0 26px;
+}
+.home-link {
+  display: inline-block; font-family: "Gloria Hallelujah", cursive;
+  color: var(--pink); text-decoration: none; margin-bottom: 20px;
+}
+.home-link:hover { color: var(--gold); }
+
+/* shows */
+.show { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 16px;
+  padding:14px 0; border-bottom:1px dashed rgba(90,78,160,0.25); }
+.show:last-child { border-bottom:none; }
+.show .date { font-family:"Gloria Hallelujah",cursive; color:var(--gold); min-width:90px; }
+.show .venue { font-weight:600; }
+.show .city { color:var(--lilac); }
+.show .ticket { margin-left:auto; background:var(--pink); color:#fff;
+  text-decoration:none; font-weight:600; padding:5px 14px; border-radius:999px; font-size:0.85rem; }
+.show .ticket:hover { background:var(--gold); }
+
+/* music embeds */
+.embed { margin:0 0 18px; }
+.embed iframe { width:100%; border:none; border-radius:14px; }
+
+/* blog */
+.post { margin-bottom:30px; }
+.post .meta { font-family:"Gloria Hallelujah",cursive; color:var(--mint); font-size:0.85rem; margin-bottom:6px; }
+.post h3 { font-size:1.35rem; }
+.tag { display:inline-block; background:rgba(90,78,160,0.15); color:var(--lilac);
+  border-radius:999px; padding:2px 10px; font-size:0.78rem; margin-right:6px; }
+
+/* contact / socials */
+.socials { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:10px; }
+.socials a { font-family:"Gloria Hallelujah",cursive; color:#fff; background:var(--lilac);
+  padding:8px 18px; border-radius:999px; text-decoration:none; }
+.socials a:hover { background:var(--pink); }
+
+.photo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:10px; }
+.ph { border:2px dashed var(--lilac); border-radius:50%; display:flex;
+  align-items:center; justify-content:center; text-align:center; font-size:0.62rem;
+  color:var(--lilac); padding:6px; background:rgba(90,78,160,0.08); }
+
+.footer { text-align:center; color:var(--lilac); font-size:0.9rem; margin-top:40px;
+  font-family:"Gloria Hallelujah",cursive; }
+
+/* music toggle */
+#music-toggle {
+  position:fixed; bottom:18px; right:18px; z-index:50;
+  background:#fff; border:2px solid var(--lilac); color:var(--cream);
+  font-family:"Gloria Hallelujah",cursive; font-size:0.8rem;
+  padding:10px 14px; border-radius:999px; cursor:url("images/wand.png") 60 40, pointer;
+  box-shadow:0 6px 18px var(--shadow);
+}
+#music-toggle:hover { border-color:var(--gold); }
+
+/* ---- mobile ---- */
+@media (max-width: 640px) {
+  .playground { min-height:0; display:flex; flex-wrap:wrap; justify-content:center; gap:18px; }
+  .mascot { position:static; transform:none; width:200px; order:-1; flex-basis:100%; }
+  .doodle, .doodle.big, .d-music, .d-shows, .d-blog, .d-contact, .d-archive {
+    position:static; transform:rotate(var(--rot)); width:130px;
+    left:auto; right:auto; top:auto; bottom:auto; animation:none; }
+  .d-archive { transform:rotate(var(--rot)); }
 }
