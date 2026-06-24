@@ -269,3 +269,88 @@ html:active, body:active, a:active, .doodle:active {
 }
 .latest a { color:#3b2a8c; font-weight:600; text-decoration:underline; }
 .latest a:hover { color:var(--pink); }
+
+/* =========================================================
+   Y2K DIGITAL CONTACT CARD (light pink, retro computer)
+   ========================================================= */
+.digi-card {
+  background: #ffe3f1;
+  border: 3px solid #ff8fc7;
+  border-radius: 10px;
+  padding: 26px 28px;
+  margin: 0 0 22px;
+  box-shadow: 0 0 0 3px #fff inset, 0 8px 24px rgba(180,80,140,0.25);
+  max-width: 560px; margin-left:auto; margin-right:auto;
+}
+.digi-title {
+  font-family: "Press Start 2P", monospace;
+  font-size: 1.3rem; color: #d6388a; text-align:center;
+  margin: 4px 0 14px; line-height:1.4;
+}
+.digi-sub {
+  font-family: "VT323", monospace;
+  font-size: 1.4rem; color: #b3477f; text-align:center; margin: 0 0 18px;
+}
+.digi-form label {
+  font-family: "VT323", monospace; font-size: 1.25rem; color:#a83b73;
+}
+.digi-form input, .digi-form textarea {
+  font-family: "VT323", monospace; font-size: 1.2rem; color:#7a2b54;
+  background:#fff; border:2px solid #ff8fc7; border-radius:6px;
+}
+.digi-form input:focus, .digi-form textarea:focus { border-color:#d6388a; }
+.digi-link { font-family:"VT323", monospace; font-size:1.25rem; color:#d6388a; }
+
+/* =========================================================
+   SOCIAL BUTTONS (big, fun shape, dark blue)
+   ========================================================= */
+.social-buttons { display:flex; flex-direction:column; gap:20px; align-items:center; }
+.social-btn {
+  font-family: "Quintessential", serif;
+  font-size: 1.8rem;
+  color:#fff; background:#2e2a78;        /* dark blue */
+  text-decoration:none;
+  padding:18px 56px;
+  border-radius: 40px 14px 40px 14px;     /* playful asymmetric shape */
+  box-shadow: 0 8px 0 #1c1a52, 0 12px 24px rgba(40,36,110,0.4);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  min-width: 240px; text-align:center;
+}
+.social-btn:hover {
+  transform: translateY(3px);
+  box-shadow: 0 5px 0 #1c1a52, 0 8px 18px rgba(40,36,110,0.4);
+  background:#3a3596;
+}
+
+/* =========================================================
+   SHOWS — text on background, faded list
+   ========================================================= */
+.shows-head {
+  font-family:"Cinzel Decorative", serif; font-weight:900;
+  font-size:2rem; color:#3b2a8c; text-align:center; margin:30px 0 14px;
+}
+.shows-empty {
+  text-align:center; font-family:"Gloria Hallelujah",cursive;
+  color:var(--lilac); margin:0 0 10px;
+}
+.shows-list { text-align:center; max-width:640px; margin:0 auto; }
+.shows-list p {
+  color: rgba(70,60,120,0.55);            /* faded, Mila-Bea style */
+  font-size:1.15rem; margin:0 0 18px; line-height:1.5;
+}
+
+/* =========================================================
+   LATEST — embedded article card
+   ========================================================= */
+.latest-embed {
+  display:inline-block; text-decoration:none; max-width:340px; margin:0 auto;
+}
+.latest-embed img {
+  width:100%; border-radius:14px; box-shadow:0 8px 22px var(--shadow);
+  border:3px solid #fff;
+}
+.latest-link {
+  display:block; margin-top:10px; color:#3b2a8c; font-weight:600;
+  font-size:1.1rem; text-decoration:underline;
+}
+.latest-embed:hover .latest-link { color:var(--pink); }
