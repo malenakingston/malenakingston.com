@@ -80,9 +80,7 @@ html:active, body:active, a:active, .doodle:active {
   width: 270px; max-width: 60%; z-index: 2; text-align: center;
 }
 .mascot img { width: 100%; height: auto; border-radius: 50%;
-  box-shadow: 0 0 0 6px rgba(255,255,255,0.7),
-              0 0 22px 8px rgba(226,61,151,0.35),
-              0 8px 20px rgba(90,78,160,0.35); }
+  box-shadow: 0 6px 18px rgba(90,78,160,0.28); }
 .ph-big {
   width: 230px; height: 230px; margin: 0 auto;
   border: 3px dashed var(--pink); border-radius: 50%;
