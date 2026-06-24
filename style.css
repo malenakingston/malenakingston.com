@@ -71,8 +71,10 @@ body {
   transform: translate(-50%, -50%);
   width: 270px; max-width: 60%; z-index: 2; text-align: center;
 }
-.mascot img { width: 100%; height: auto;
-  filter: drop-shadow(0 6px 14px rgba(90,78,160,0.3)); }
+.mascot img { width: 100%; height: auto; border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(255,255,255,0.7),
+              0 0 22px 8px rgba(226,61,151,0.35),
+              0 8px 20px rgba(90,78,160,0.35); }
 .ph-big {
   width: 230px; height: 230px; margin: 0 auto;
   border: 3px dashed var(--pink); border-radius: 50%;

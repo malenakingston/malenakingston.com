@@ -7,7 +7,10 @@ IN PLACE (your uploads):
   nav-socials.png         — speech bubble (socials) ✓
   wand.png wand-click.png wand-big.png — magic wand cursor ✓
 
-STILL TO DRAW:
+IN PLACE:
+  me.png   — your photo (circular portrait, swap anytime) ✓
+
+OPTIONAL TO REPLACE LATER:
   me.png   — a doodle of YOU, ~600px (center of homepage)
 
 OPTIONAL:
