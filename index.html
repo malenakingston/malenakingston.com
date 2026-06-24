@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>malena kingston ✦ home</title>
+  <meta name="description" content="the official starry corner of malena kingston — music, shows, and everything else." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Gloria+Hallelujah&family=Quicksand:wght@400;500;700&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- ===== NAME (your handwritten signature) ===== -->
+    <h1 class="site-name-img">
+      <img src="images/name-heading-black.png" alt="Malena Kingston" />
+    </h1>
+    <p class="tagline">✦ songs, moons, and miscellaneous wonders ✦</p>
+
+    <!-- ===== SCATTERED PLAYGROUND =====
+         Each doodle is a clickable link, tilted + floating at its own angle.
+         Drop a self-portrait into images/me.png to fill the center mascot spot. -->
+    <div class="playground">
+
+      <!-- YOU (center mascot) — DRAW: images/me.png (~600px). Shows placeholder until added. -->
+      <div class="mascot">
+        <img src="images/me.png" alt="Malena"
+             onerror="this.outerHTML='&lt;div class=ph-big&gt;draw yourself!&lt;br&gt;images/me.png&lt;/div&gt;'">
+      </div>
+
+      <!-- MUSIC — singing bird -->
+      <a class="doodle d-music" href="music.html" style="--rot:-6deg;">
+        <img src="images/nav-music.png" alt="">
+        <span class="label">the songs</span>
+      </a>
+
+      <!-- SHOWS — microphone -->
+      <a class="doodle d-shows" href="shows.html" style="--rot:7deg;">
+        <img src="images/nav-shows.png" alt="">
+        <span class="label">on stage</span>
+      </a>
+
+      <!-- BLOG — diary -->
+      <a class="doodle d-blog" href="blog.html" style="--rot:-8deg;">
+        <img src="images/nav-blog.png" alt="">
+        <span class="label">the diary</span>
+      </a>
+
+      <!-- CONTACT — winged letter -->
+      <a class="doodle d-contact" href="contact.html" style="--rot:5deg;">
+        <img src="images/nav-contact.png" alt="">
+        <span class="label">say hi</span>
+      </a>
+
+      <!-- ARCHIVE — shooting star -->
+      <a class="doodle d-archive" href="archive.html" style="--rot:-4deg;">
+        <img src="images/nav-archive.png" alt="">
+        <span class="label">the vault</span>
+      </a>
+
+    </div>
+
+    <!-- ===== welcome note ===== -->
+    <div class="card note">
+      <p>hi, welcome in ✦ this is my little corner of the internet. i make music,
+         i play shows, and i write about all the other things rattling around my
+         head. poke around. say hi.</p>
+      <p style="margin-bottom:0;">— malena 🌙</p>
+    </div>
+
+    <p class="footer">made with love (and a lot of stars) ✦ malena kingston</p>
+  </div>
+
+  <audio id="bg-music" loop><source src="images/song.mp3" type="audio/mpeg" /></audio>
+  <button id="music-toggle" aria-pressed="false">♪ play music</button>
+
+  <script>
+    const audio=document.getElementById('bg-music'),btn=document.getElementById('music-toggle');
+    btn.addEventListener('click',()=>{ if(audio.paused){audio.play().catch(()=>{});btn.textContent='♪ pause music';}else{audio.pause();btn.textContent='♪ play music';}});
+  </script>
+</body>
+</html>
