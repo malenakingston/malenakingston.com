@@ -21,43 +21,36 @@
     <!-- ===== SCATTERED PLAYGROUND ===== -->
     <div class="playground">
 
-      <!-- YOU (center mascot) — DRAW: images/me.png -->
       <div class="mascot">
         <img src="images/me.png" alt="Malena"
              onerror="this.outerHTML='&lt;div class=ph-big&gt;draw yourself!&lt;br&gt;images/me.png&lt;/div&gt;'">
       </div>
 
-      <!-- MUSIC — bird (big) -->
       <a class="doodle d-music big" href="music.html" style="--rot:-6deg;">
         <img src="images/nav-music.png" alt="">
         <span class="label">my music</span>
       </a>
 
-      <!-- SHOWS — mic -->
       <a class="doodle d-shows" href="shows.html" style="--rot:7deg;">
         <img src="images/nav-shows.png" alt="">
         <span class="label">shows</span>
       </a>
 
-      <!-- BLOG — diary -->
       <a class="doodle d-blog" href="blog.html" style="--rot:-8deg;">
         <img src="images/nav-blog.png" alt="">
         <span class="label">thoughts &amp; schemes</span>
       </a>
 
-      <!-- CONTACT — winged letter (big) -->
       <a class="doodle d-contact big" href="contact.html" style="--rot:5deg;">
         <img src="images/nav-contact.png" alt="">
         <span class="label">contact me</span>
       </a>
 
-      <!-- SOCIALS — speech bubble (placed far from the envelope) -->
       <a class="doodle d-socials" href="contact.html" style="--rot:-3deg;">
         <img src="images/nav-socials.png" alt="">
         <span class="label">socials</span>
       </a>
 
-      <!-- ARCHIVE — shooting star — center bottom (big) -->
       <a class="doodle d-archive big" href="archive.html" style="--rot:-4deg;">
         <img src="images/nav-archive.png" alt="">
         <span class="label">archive</span>
@@ -65,12 +58,19 @@
 
     </div>
 
-    <!-- ===== welcome note ===== -->
+    <!-- ===== about me ===== -->
     <div class="card note">
-      <p>hi, welcome in ✦ this is my little corner of the internet. i make music,
-         i play shows, and i write about all the other things rattling around my
-         head. poke around. say hi.</p>
-      <p style="margin-bottom:0;">— malena 🌙</p>
+      <h2 style="text-align:center;">hi, i'm malena ✦</h2>
+      <p>hi, i'm malena kingston! i'm 19, from miami, and currently located in
+         nashville. all i really want is to make music that matters to the people
+         who hear it. thanks for being here!</p>
+    </div>
+
+    <!-- ===== latest ===== -->
+    <div class="card note">
+      <h2 style="text-align:center;">latest ✦</h2>
+      <p>i was named a 2026 recipient of the
+         <a href="https://www.songhall.org/news/the-2026-songwriters-hall-of-fame-scholarship-recipients-announced" target="_blank" rel="noopener">Songwriters Hall of Fame — Belmont University Songwriting Scholarship</a>. 🌙</p>
     </div>
 
     <p class="footer">made with love ✦ malena kingston</p>
@@ -79,17 +79,9 @@
   <audio id="bg-music" loop><source src="images/song.mp3" type="audio/mpeg" /></audio>
   <button id="music-toggle" aria-pressed="false">♪ play music</button>
 
-  <!-- ===== magic wand cursor + trail ===== -->
-  <img id="wand-cursor" src="images/wand-big.png" alt="" aria-hidden="true">
-  <canvas id="trail"></canvas>
-
-  <script src="wand.js"></script>
   <script>
-    /* music toggle */
     const audio=document.getElementById('bg-music'),btn=document.getElementById('music-toggle');
     btn.addEventListener('click',()=>{ if(audio.paused){audio.play().catch(()=>{});btn.textContent='♪ pause music';}else{audio.pause();btn.textContent='♪ play music';}});
-
-    
   </script>
 </body>
 </html>

@@ -45,6 +45,14 @@ body {
   .doodle { animation: none !important; }
 }
 
+/* ---- magic wand cursor (native, with baked-in purple glow) ---- */
+html, body, a, button, .doodle, .mascot {
+  cursor: url("images/wand.png") 64 38, auto;
+}
+html:active, body:active, a:active, .doodle:active {
+  cursor: url("images/wand-click.png") 64 38, auto;
+}
+
 .wrap { max-width: 920px; margin: 0 auto; padding: 28px 20px 80px; }
 
 /* ---- handwritten signature heading ---- */
@@ -141,7 +149,7 @@ body {
 .d-socials{ animation: bob 5.8s ease-in-out infinite; }
 .d-socials{ animation: bob 7s ease-in-out infinite; }
 
-.note { max-width: 620px; margin: 0 auto; text-align: center; }
+.card.note { max-width: 600px; margin-left: auto; margin-right: auto; margin-top: 30px; margin-bottom: 22px; text-align: center; }
 
 /* =========================================================
    CARDS / inner pages
@@ -224,3 +232,27 @@ body {
     left:auto; right:auto; top:auto; bottom:auto; animation:none; }
   .d-archive { transform:rotate(var(--rot)); }
 }
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
+.contact-form { display:flex; flex-direction:column; gap:14px; max-width:480px; margin:18px auto 0; }
+.contact-form label {
+  display:flex; flex-direction:column; gap:5px;
+  font-family:"Gloria Hallelujah",cursive; font-size:0.85rem; color:var(--lilac);
+  text-align:left;
+}
+.contact-form input, .contact-form textarea {
+  font-family:"Cormorant", serif; font-size:1.05rem; color:var(--cream);
+  background:#faf8ff; border:2px solid rgba(90,78,160,0.3); border-radius:14px;
+  padding:10px 12px; outline:none; resize:vertical;
+}
+.contact-form input:focus, .contact-form textarea:focus { border-color:var(--pink); }
+.send-btn {
+  align-self:center; margin-top:6px;
+  font-family:"Quintessential", serif; font-size:1.2rem; color:#fff;
+  background:var(--pink); border:none; border-radius:999px;
+  padding:10px 30px; cursor:url("images/wand.png") 64 38, pointer;
+  box-shadow:0 6px 16px var(--shadow); transition:transform 0.15s ease, background 0.15s ease;
+}
+.send-btn:hover { transform:scale(1.06); background:var(--gold); }

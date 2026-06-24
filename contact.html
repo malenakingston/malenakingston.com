@@ -13,25 +13,51 @@
   <div class="wrap">
     <a class="home-link" href="index.html">← back to the moon</a>
     <h1 class="page-title">contact me ✦</h1>
-    <div class="card" style="text-align:center;">
-      <h2>get in touch 🌙</h2>
-      <p style="font-size:1.2rem;">✉️ <a href="mailto:you@malenakingston.com">you@malenakingston.com</a></p>
-      <p style="color:var(--lilac); font-family:'Gloria Hallelujah',cursive;">(swap in your real email)</p>
+
+    <!-- ===== MESSAGE BOX ===== -->
+    <div class="card">
+      <h2 style="text-align:center;">send me a note 🌙</h2>
+      <p style="text-align:center; color:var(--lilac); font-family:'Gloria Hallelujah',cursive; font-size:0.9rem;">
+        write to me and it lands straight in my inbox ✦
+      </p>
+
+      <!-- ===== ACTIVATE THIS FORM (one-time, free, ~2 min) =====
+           1. Go to https://formspree.io and sign up (free) with malenakingstonmusic@gmail.com
+           2. Create a new form. It gives you a form ID like "xyzabcd".
+           3. Replace YOUR_FORM_ID below with that ID.
+           Until you do this, the form button below won't deliver — but the
+           "email me directly" button underneath always works. -->
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+        <label>your name
+          <input type="text" name="name" required>
+        </label>
+        <label>your email
+          <input type="email" name="email" required>
+        </label>
+        <label>your message
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <button type="submit" class="send-btn">send ✦</button>
+      </form>
+
+      <p style="text-align:center; margin-top:18px;">
+        or just
+        <a href="mailto:malenakingstonmusic@gmail.com">email me directly →</a>
+      </p>
     </div>
+
+    <!-- ===== SOCIALS ===== -->
     <div class="card" style="text-align:center;">
       <h2>find me around the web ✦</h2>
-      <img src="images/nav-socials.png" alt="" style="width:160px;margin:6px 0 14px;">
-      <!-- point these at your real profile URLs -->
+      <img src="images/nav-socials.png" alt="" style="width:150px;margin:6px 0 14px;">
       <div class="socials">
-        <a href="#">youtube</a>
-        <a href="#">tiktok</a>
-        <a href="#">instagram</a>
-        <a href="#">spotify</a>
+        <a href="https://www.youtube.com/@malenakingston" target="_blank" rel="noopener">youtube</a>
+        <a href="https://www.tiktok.com/@malenakingston" target="_blank" rel="noopener">tiktok</a>
+        <a href="https://www.instagram.com/malenakingston" target="_blank" rel="noopener">instagram</a>
       </div>
     </div>
+
     <p class="footer">made with love ✦ malena kingston</p>
   </div>
-  <img id="wand-cursor" src="images/wand-big.png" alt="" aria-hidden="true"><canvas id="trail"></canvas>
-  <script src="wand.js"></script>
 </body>
 </html>
