@@ -45,14 +45,6 @@ body {
   .doodle { animation: none !important; }
 }
 
-/* ---- wand cursor (bigger, hotspot near star center) ---- */
-html, body, a, button, .doodle, .mascot {
-  cursor: url("images/wand.png") 60 40, auto;
-}
-html:active, body:active, a:active, .doodle:active {
-  cursor: url("images/wand-click.png") 60 40, auto;
-}
-
 .wrap { max-width: 920px; margin: 0 auto; padding: 28px 20px 80px; }
 
 /* ---- handwritten signature heading ---- */
@@ -72,7 +64,7 @@ html:active, body:active, a:active, .doodle:active {
 /* =========================================================
    SCATTERED PLAYGROUND
    ========================================================= */
-.playground { position: relative; min-height: 640px; margin: 10px 0 30px; }
+.playground { position: relative; min-height: 740px; margin: 10px 0 30px; }
 
 .mascot {
   position: absolute; left: 50%; top: 44%;
@@ -97,7 +89,7 @@ html:active, body:active, a:active, .doodle:active {
   transition: transform 0.2s ease, filter 0.2s ease;
   z-index: 3;
 }
-.doodle.big { width: 210px; }     /* bigger bird / envelope / star */
+.doodle.big { width: 195px; }     /* bigger bird / envelope / star */
 
 .doodle img { width: 100%; height: auto;
   filter: drop-shadow(0 4px 8px rgba(90,78,160,0.28)); }
@@ -127,8 +119,9 @@ html:active, body:active, a:active, .doodle:active {
 /* placement around the mascot */
 .d-music   { left: 0%;   top: 6%;  }
 .d-shows   { right: 3%;  top: 2%;  left: auto; }
-.d-blog    { left: 4%;   bottom: 16%; top: auto; }
-.d-contact { right: 1%;  bottom: 12%; top: auto; left: auto; }
+.d-blog    { left: 4%;   bottom: 30%; top: auto; }
+.d-contact { right: 1%;  bottom: 26%; top: auto; left: auto; }
+.d-socials { left: 2%;   bottom: 4%;  top: auto; width: 165px; }
 
 /* ARCHIVE now centered, at the BOTTOM under the portrait */
 .d-archive {
@@ -143,6 +136,8 @@ html:active, body:active, a:active, .doodle:active {
 .d-shows{ animation: bob 6s ease-in-out infinite; }
 .d-blog{ animation: bob 5.5s ease-in-out infinite; }
 .d-contact{ animation: bob 6.5s ease-in-out infinite; }
+.d-socials{ animation: bob 5.8s ease-in-out infinite; }
+.d-socials{ animation: bob 7s ease-in-out infinite; }
 
 .note { max-width: 620px; margin: 0 auto; text-align: center; }
 
@@ -213,7 +208,7 @@ html:active, body:active, a:active, .doodle:active {
   position:fixed; bottom:18px; right:18px; z-index:50;
   background:#fff; border:2px solid var(--lilac); color:var(--cream);
   font-family:"Gloria Hallelujah",cursive; font-size:0.8rem;
-  padding:10px 14px; border-radius:999px; cursor:url("images/wand.png") 60 40, pointer;
+  padding:10px 14px; border-radius:999px; cursor:pointer;
   box-shadow:0 6px 18px var(--shadow);
 }
 #music-toggle:hover { border-color:var(--gold); }
@@ -222,7 +217,7 @@ html:active, body:active, a:active, .doodle:active {
 @media (max-width: 640px) {
   .playground { min-height:0; display:flex; flex-wrap:wrap; justify-content:center; gap:18px; }
   .mascot { position:static; transform:none; width:200px; order:-1; flex-basis:100%; }
-  .doodle, .doodle.big, .d-music, .d-shows, .d-blog, .d-contact, .d-archive {
+  .doodle, .doodle.big, .d-music, .d-shows, .d-blog, .d-contact, .d-socials, .d-archive {
     position:static; transform:rotate(var(--rot)); width:130px;
     left:auto; right:auto; top:auto; bottom:auto; animation:none; }
   .d-archive { transform:rotate(var(--rot)); }

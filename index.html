@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>malena kingston ✦ home</title>
-  <meta name="description" content="the official starry corner of malena kingston — music, shows, and everything else." />
+  <meta name="description" content="the official starry corner of malena kingston." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Quintessential&family=Cormorant:ital,wght@0,400;0,600;1,400&family=Gloria+Hallelujah&display=swap" rel="stylesheet" />
@@ -13,28 +13,27 @@
 <body>
   <div class="wrap">
 
-    <!-- ===== NAME (handwritten signature) ===== -->
+    <!-- ===== NAME (handwritten signature) — no subheading ===== -->
     <h1 class="site-name-img">
       <img src="images/name-heading-black.png" alt="Malena Kingston" />
     </h1>
-    <p class="tagline">✦ songs, moons, and miscellaneous wonders ✦</p>
 
     <!-- ===== SCATTERED PLAYGROUND ===== -->
     <div class="playground">
 
-      <!-- YOU (center mascot) — DRAW: images/me.png (~600px) -->
+      <!-- YOU (center mascot) — DRAW: images/me.png -->
       <div class="mascot">
         <img src="images/me.png" alt="Malena"
              onerror="this.outerHTML='&lt;div class=ph-big&gt;draw yourself!&lt;br&gt;images/me.png&lt;/div&gt;'">
       </div>
 
-      <!-- MUSIC — singing bird (bigger) → coming soon -->
+      <!-- MUSIC — bird (big) -->
       <a class="doodle d-music big" href="music.html" style="--rot:-6deg;">
         <img src="images/nav-music.png" alt="">
         <span class="label">my music</span>
       </a>
 
-      <!-- SHOWS — microphone -->
+      <!-- SHOWS — mic -->
       <a class="doodle d-shows" href="shows.html" style="--rot:7deg;">
         <img src="images/nav-shows.png" alt="">
         <span class="label">shows</span>
@@ -46,13 +45,19 @@
         <span class="label">thoughts &amp; schemes</span>
       </a>
 
-      <!-- CONTACT — winged letter (bigger) -->
+      <!-- CONTACT — winged letter (big) -->
       <a class="doodle d-contact big" href="contact.html" style="--rot:5deg;">
         <img src="images/nav-contact.png" alt="">
-        <span class="label">reach out!</span>
+        <span class="label">contact me</span>
       </a>
 
-      <!-- ARCHIVE — shooting star — now CENTER-BOTTOM under the portrait (bigger) -->
+      <!-- SOCIALS — speech bubble (placed far from the envelope) -->
+      <a class="doodle d-socials" href="contact.html" style="--rot:-3deg;">
+        <img src="images/nav-socials.png" alt="">
+        <span class="label">socials</span>
+      </a>
+
+      <!-- ARCHIVE — shooting star — center bottom (big) -->
       <a class="doodle d-archive big" href="archive.html" style="--rot:-4deg;">
         <img src="images/nav-archive.png" alt="">
         <span class="label">archive</span>
@@ -74,9 +79,17 @@
   <audio id="bg-music" loop><source src="images/song.mp3" type="audio/mpeg" /></audio>
   <button id="music-toggle" aria-pressed="false">♪ play music</button>
 
+  <!-- ===== magic wand cursor + trail ===== -->
+  <img id="wand-cursor" src="images/wand-big.png" alt="" aria-hidden="true">
+  <canvas id="trail"></canvas>
+
+  <script src="wand.js"></script>
   <script>
+    /* music toggle */
     const audio=document.getElementById('bg-music'),btn=document.getElementById('music-toggle');
     btn.addEventListener('click',()=>{ if(audio.paused){audio.play().catch(()=>{});btn.textContent='♪ pause music';}else{audio.pause();btn.textContent='♪ play music';}});
+
+    
   </script>
 </body>
 </html>
