@@ -256,3 +256,18 @@ html:active, body:active, a:active, .doodle:active {
   box-shadow:0 6px 16px var(--shadow); transition:transform 0.15s ease, background 0.15s ease;
 }
 .send-btn:hover { transform:scale(1.06); background:var(--gold); }
+
+/* ===== about blurb: thicker text ===== */
+.blurb { font-weight: 600; font-size: 1.22rem; }
+
+/* ===== latest: no box, big dark blue/purple heading + link ===== */
+.latest { text-align:center; max-width:620px; margin:0 auto 30px; }
+.latest-title {
+  font-family:"Cinzel Decorative", serif;
+  font-weight:900;
+  font-size:2.2rem;
+  color:#3b2a8c;            /* dark blue-purple */
+  margin:0 0 8px;
+}
+.latest a { color:#3b2a8c; font-weight:600; text-decoration:underline; }
+.latest a:hover { color:var(--pink); }
